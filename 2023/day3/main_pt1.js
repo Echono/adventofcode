@@ -12,9 +12,9 @@ const main = async function () {
   });
 
   // Create iterable lines
-  const stringArry = [];
+  const stringArray = [];
   for await (const line of filelines) {
-    stringArry.push(line);
+    stringArray.push(line);
   }
 
   // Function to carve out everything around a number
@@ -27,25 +27,25 @@ const main = async function () {
 
   let result = 0;
 
-  for(let i = 0; i < stringArry.length; i++) {
+  for(let i = 0; i < stringArray.length; i++) {
 
     // Regex match all numbers
-    const numbers = [...stringArry[i].matchAll(/\d+/g)];
+    const numbers = [...stringArray[i].matchAll(/\d+/g)];
     for(const number of numbers) {
 
         const matrix = [];
 
         // Get the adjecent text on line before
         if(i > 0) {
-            matrix.push(carve(number, stringArry[i-1]));
+            matrix.push(carve(number, stringArray[i-1]));
         }
 
         // Get adjecent text around number
-        matrix.push(carve(number, stringArry[i]));
+        matrix.push(carve(number, stringArray[i]));
 
         // Get adjecent text on line after
-        if(stringArry[i+1] !== undefined) {
-            matrix.push(carve(number, stringArry[i+1]));
+        if(stringArray[i+1] !== undefined) {
+            matrix.push(carve(number, stringArray[i+1]));
         }
 
         // Make matrix into one string
