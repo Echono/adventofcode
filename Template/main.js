@@ -9,6 +9,9 @@ const main = async function() {
         input: filestream
     });
     
+    for await (const line of filelines) {
+    }
+
 }
 
 main();
