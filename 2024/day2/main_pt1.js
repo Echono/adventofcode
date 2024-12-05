@@ -33,8 +33,6 @@ const main = async function() {
 
     console.log(result);
 
-    debugger;
-
 }
 
 const determineDirection = (first, second) => {
